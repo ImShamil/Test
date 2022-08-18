@@ -166,22 +166,11 @@ ul{
     color: #FFFFFF;
     cursor: pointer;
     position: relative;
-    z-index: 0;
 }
 
-.box--theme-six:hover:after{
-    content: url(../images/err-img.svg);
-    height: 61px;
-    width: 61px;
-    position: absolute;
-    z-index: 2;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    
-}
+
 .box--theme-six:hover{
-   
-    filter: blur(5px);
+    background-image: urL(../images/blur-img.png);
+    transition: all .3s;
 }
 
