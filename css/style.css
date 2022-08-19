@@ -29,7 +29,8 @@ ul{
 }
 .container{
     max-width: 784px;
-    padding: 0 12px;
+    padding: 0 12px 0 13px;
+    /* padding: 0 12px; */
     margin: 0 auto;
 }
 .title__box{
@@ -40,17 +41,17 @@ ul{
     background-color:#C4C4C4 ;
 }
 .cards__box{
-    padding: 0 12px 0 13px;
     display: grid;
     gap: 10px;
     margin-bottom: 10px;
-    grid-template-columns:repeat(3,241px);
+    grid-template-columns:repeat(3,1fr);
 }
 .cards__box--one{
-    grid-template-rows: repeat(2,241px);
+    /* grid-template-rows: repeat(2,241px); */
 }
 .card__box{
     padding: 15px;
+    
 }
 .card__box-one{
     padding: 101px 15px 15px;
@@ -91,7 +92,7 @@ ul{
 }
 
 .cards__box--two{
-    grid-template-rows: repeat(2,155px);
+    /* grid-template-rows: repeat(2,155px); */
 }
 
 .card__sub-cards{
@@ -193,4 +194,7 @@ ul{
 .card--row-pos{
     grid-column: 1/2;
     grid-row: 2/3;
+}
+.title__box--footer{
+    margin-bottom: 0;
 }
