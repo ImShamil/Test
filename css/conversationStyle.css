@@ -19,9 +19,10 @@ body{
 }
 
 .messages-list__box{
-    height: 517px;
+    height: 458px;
+    width: 600px;
     border-bottom: 1px solid #DBDBDB;
-    padding: 41px 36px 0 15px;
+    margin: 41px 36px 17px 15px;
     margin-bottom: 20px;
     overflow: scroll;
     overflow-x:hidden;
@@ -96,6 +97,7 @@ body{
 }
 
 .user__message-text{
+    padding: 15px 15px 7px 15px;
     max-width: 477px;
     background-color: white;   
 }
