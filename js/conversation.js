@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', ()=>{
+document.addEventListener('DOMContentLoaded', function(){
     let user__message = document.querySelector('form');
     if (!user__message) return;    
 
@@ -47,45 +47,40 @@ document.addEventListener('DOMContentLoaded', ()=>{
        
    ];
 
-   let insertDateBox=(date)=>{
+   function insertDateBox(date){
     if(date!=last_date){
         last_date=date;
         let messagesListBox = document.querySelector('.messages-list__box');
         let dateMessage=
-        `<div class="date-message">
-             <div class="date-message__box">
-                 <div class="date-message__date">
-                     ${date}
-                 </div>
-             </div>
-        </div>`;
+        '<div class="date-message"><div class="date-message__box"><div class="date-message__date">'
+        +
+        date
+        +
+        '</div></div></div>';
         if(messagesListBox){
             messagesListBox.insertAdjacentHTML("beforeend",dateMessage);
         }
     }
    }
 
-   let insertMessage=(user, message)=>{
+   function insertMessage(user, message){
         let userBox;
         last_user=user;
         switch(user){
             case 'right':
-                userBox=
-                `<div class="user user--right">
-                    <div class="user__box user__box--right">
-                        <div class="user__logo user__logo--right"><img src="images/user-logo.png" alt="user-logo"> </div>
-                        <div class="user__message-text user__message-text--right">${message}</div>
-                    </div>
-                </div>`;
+                userBox='<div class="user user--right"><div class="user__box user__box--right"><div class="user__logo user__logo--right"><img src="images/user-logo.png" alt="user-logo"> </div><div class="user__message-text user__message-text--right">'
+                +
+                message
+                +
+                '</div></div></div>';
                 break;
             case 'left':
                 userBox=
-                `<div class="user user--left">
-                    <div class="user__box user__box--left">
-                        <div class="user__logo user__logo--left"> <img src="images/user-logo.png" alt="user-logo"> </div>
-                        <div class="user__message-text user__message-text--left">${message}</div>
-                    </div>
-                </div>`
+                '<div class="user user--left"><div class="user__box user__box--left"><div class="user__logo user__logo--left"> <img src="images/user-logo.png" alt="user-logo"> </div><div class="user__message-text user__message-text--left">'
+                +
+                message
+                +
+                '</div></div></div>'
         }
 
     let dateMessageBox=document.querySelector('.date-message:last-child>.date-message__box');
@@ -95,16 +90,16 @@ document.addEventListener('DOMContentLoaded', ()=>{
     }
    }
    
-    let autoScroll=()=>{
+    function autoScroll(){
         let messagesListBox=document.querySelector('.messages-list__box');
         messagesListBox.scrollTop=messagesListBox.scrollHeight;
    }
    
-   messagesList.forEach((item)=>{
+   messagesList.forEach(function(item){
        let date=item.date;
        let messages=item.messages;
        insertDateBox(date);
-       messages.forEach((item)=>{
+       messages.forEach(function(item){
            let user=item.user;
            let message=item.message;
            insertMessage(user,message);
@@ -113,10 +108,10 @@ document.addEventListener('DOMContentLoaded', ()=>{
    
    window.onload=autoScroll;
    
-   user__message.addEventListener('submit', (e)=>{
+   user__message.addEventListener('submit', function(e){
         e.preventDefault()
         let message = user__message.querySelector('[name="user-message"]').value;
-        let date = new Date().toLocaleString('default', {day:"numeric",month: 'long',year:'numeric' }).slice(0,-3);
+        let date = new Date().toLocaleString('ru-Ru', {day:"numeric",month: 'long',year:'numeric' }).slice(0,-3);
         if(message){
             let user=(last_user=='right')?'left':'right';
             insertDateBox(date);

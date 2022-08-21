@@ -80,17 +80,18 @@ body{
     border-bottom: 1px solid #DBDBDB;
     width: 100%;
     top: 50%;
-    margin-left: 27.8px;
+    transform: translateX(50%);
+    right: -65px;
 }
 
 .date-message__date::before{
     content: '';
     position: absolute;
     border-bottom: 1px solid #DBDBDB;
-    transform: translateX(-100%);
+    transform: translateX(-50%);
     width: 100%;
     top: 50%;
-    margin-left: -27.8px;
+    left:-65px
 }
 
 .user__box{
