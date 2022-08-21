@@ -5,6 +5,7 @@
 }
 
 body{
+    font-family: 'Roboto';
     font-weight: 400;
     font-size: 14px;
     color: #000000;  
@@ -116,8 +117,9 @@ body{
     background-color: white;
     border-radius: 5px;
     position: relative;
-    word-break: break-word; 
-    white-space: break-spaces;  
+    word-break: break-word;
+    white-space: pre-wrap;
+    -ms-word-break:break-all;
 }
 
 .user__message-text--left{
