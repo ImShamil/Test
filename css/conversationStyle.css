@@ -13,17 +13,18 @@ body{
 .main__box{
     max-width: 651px;
     height: 757px;
-   
     margin: 0 auto;
     background-image: url(../images/background-img.png);
 }
-
+.messages-list{
+    padding-top:41px;
+}
 .messages-list__box{
-    height: 458px;
-    width: 600px;
+    height: 488px;
     border-bottom: 1px solid #DBDBDB;
-    margin: 41px 36px 17px 15px;
     margin-bottom: 20px;
+    padding-left: 15px;
+    padding-right: 36px;
     overflow: scroll;
     overflow-x:hidden;
 }
@@ -43,6 +44,11 @@ body{
     font-family: 'Noto Sans';
     line-height: 19px;
     color: #696969;
+    border-radius: 4px;
+}
+
+.user-message__text-field:focus{
+    outline: none;
 }
 
 .user-message__btn{
@@ -57,11 +63,17 @@ body{
     line-height: 24px;
 }
 
+.date-message__box{
+    margin-top: 10px;
+}
+
 .date-message__date{
     text-align: center;
     margin-bottom: 16px;
     position: relative;
+    line-height: 24px;
 }
+
 .date-message__date::after{
     content: '';
     position: absolute;
@@ -97,15 +109,38 @@ body{
 }
 
 .user__message-text{
+    line-height: 24px;
     padding: 15px 15px 7px 15px;
-    max-width: 477px;
-    background-color: white;   
+    max-width: 470px;
+    background-color: white;
+    border-radius: 5px;
+    position: relative;
+    word-break: break-word; 
+    white-space: break-spaces;  
 }
 
 .user__message-text--left{
     margin-left: 11px;
 }
 
+.user__message-text--left::after{
+    content: '';
+    position: absolute;
+    right:calc(100% - 7px);
+    top: 7px;
+    border: 7px solid transparent;
+    border-top: 7px solid white;
+}
+
 .user__message-text--right{
     margin-right: 11px;
+}
+
+.user__message-text--right::after{
+    content: '';
+    position: absolute;
+    right: -7px;
+    top: 7px;
+    border: 7px solid transparent;
+    border-top: 7px solid white;
 }

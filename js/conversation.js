@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', ()=>{
-    let el_form = document.querySelector('form');
-    if (!el_form) return;    
+    let user__message = document.querySelector('form');
+    if (!user__message) return;    
 
     let last_user="";
     let last_date="";
@@ -66,36 +66,38 @@ document.addEventListener('DOMContentLoaded', ()=>{
    }
 
    let insertMessage=(user, message)=>{
-    let userBox;
-    last_user=user;
-    switch(user){
-        case 'right':
-            userBox=
-            `<div class="user user--right">
-                <div class="user__box user__box--right">
-                    <div class="user__logo user__logo--right"><img src="images/user-logo.png" alt="user-logo"> </div>
-                    <div class="user__message-text user__message-text--right">${message}</div>
-                </div>
-            </div>`;
-            break;
-        case 'left':
-            userBox=
-            `<div class="user user--left">
-                <div class="user__box user__box--left">
-                    <div class="user__logo user__logo--left"> <img src="images/user-logo.png" alt="user-logo"> </div>
-                    <div class="user__message-text user__message-text--left">${message}</div>
-                </div>
-            </div>`
-    }
+        let userBox;
+        last_user=user;
+        switch(user){
+            case 'right':
+                userBox=
+                `<div class="user user--right">
+                    <div class="user__box user__box--right">
+                        <div class="user__logo user__logo--right"><img src="images/user-logo.png" alt="user-logo"> </div>
+                        <div class="user__message-text user__message-text--right">${message}</div>
+                    </div>
+                </div>`;
+                break;
+            case 'left':
+                userBox=
+                `<div class="user user--left">
+                    <div class="user__box user__box--left">
+                        <div class="user__logo user__logo--left"> <img src="images/user-logo.png" alt="user-logo"> </div>
+                        <div class="user__message-text user__message-text--left">${message}</div>
+                    </div>
+                </div>`
+        }
+
     let dateMessageBox=document.querySelector('.date-message:last-child>.date-message__box');
+    
     if(dateMessageBox){
         dateMessageBox.insertAdjacentHTML("beforeend",userBox);
     }
    }
    
-   let autoScroll=()=>{
-    let messagesListBox=document.querySelector('.messages-list__box');
-    messagesListBox.scrollTop=messagesListBox.scrollHeight;
+    let autoScroll=()=>{
+        let messagesListBox=document.querySelector('.messages-list__box');
+        messagesListBox.scrollTop=messagesListBox.scrollHeight;
    }
    
    messagesList.forEach((item)=>{
@@ -111,18 +113,17 @@ document.addEventListener('DOMContentLoaded', ()=>{
    
    window.onload=autoScroll;
    
-    el_form.addEventListener('submit', (e)=>{
+   user__message.addEventListener('submit', (e)=>{
         e.preventDefault()
-        let message = el_form.querySelector('[name="user-message"]').value;
+        let message = user__message.querySelector('[name="user-message"]').value;
         let date = new Date().toLocaleString('default', {day:"numeric",month: 'long',year:'numeric' }).slice(0,-3);
         if(message){
             let user=(last_user=='right')?'left':'right';
             insertDateBox(date);
             insertMessage(user,message);
+            user__message.querySelector('[name="user-message"]').value="";
             autoScroll();
         }
-        
     });
-    
 })
 
