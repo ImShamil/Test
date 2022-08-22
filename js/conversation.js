@@ -57,8 +57,6 @@ document.addEventListener('DOMContentLoaded', function(){
        });
    });
    
-   window.onload=autoScroll;
-   
    user__message.addEventListener('submit', function(e){
         e.preventDefault()
         let message = user__message.querySelector('[name="user-message"]').value;
@@ -113,6 +111,7 @@ document.addEventListener('DOMContentLoaded', function(){
     if(dateMessageBox){
         dateMessageBox.insertAdjacentHTML("beforeend",userBox);
     }
+    window.onload=autoScroll;
 }   
     function autoScroll(){
         let messagesListBox=document.querySelector('.messages-list__box');
