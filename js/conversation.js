@@ -113,24 +113,7 @@ document.addEventListener('DOMContentLoaded', function(){
     if(dateMessageBox){
         dateMessageBox.insertAdjacentHTML("beforeend",userBox);
     }
-}
-
-   function insertDateBox(date){
-    if(date!=last_date){
-        last_date=date;
-        let messagesListBox = document.querySelector('.messages-list__box');
-        let dateMessage=
-        '<div class="date-message"><div class="date-message__box"><div class="date-message__date">'
-        +
-        date
-        +
-        '</div></div></div>';
-        if(messagesListBox){
-            messagesListBox.insertAdjacentHTML("beforeend",dateMessage);
-        }
-    }
-   }
-    
+}   
     function autoScroll(){
         let messagesListBox=document.querySelector('.messages-list__box');
         messagesListBox.scrollTop=messagesListBox.scrollHeight;
