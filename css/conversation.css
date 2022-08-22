@@ -14,7 +14,7 @@ body{
 .main__box{
     max-width: 651px;
     height: 757px;
-    margin: 0 auto;
+    margin: 50px auto;
     background-image: url(../images/background-img.png);
 }
 .messages-list{
